@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A clean personal web page built while learning HTML, CSS, and JavaScript."
+    />
+    <title>Aditya | Learning Web Development</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Personal learning project</p>
+        <h1>Building my first web page, one small step at a time.</h1>
+        <p class="hero-text">
+          This page is a simple reflection of my journey into web development — a
+          place where I'm learning, experimenting, and growing.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="about">
+        <h2>About this page</h2>
+        <p>
+          Hi, I'm <strong>Aditya Keshari</strong>, a B.Tech CSE student who's
+          just getting started with web development. I created this page to
+          practice the basics and turn a few ideas into something real.
+        </p>
+        <p>
+          It may be simple, but it represents a meaningful beginning — curiosity,
+          consistency, and the willingness to learn.
+        </p>
+      </section>
+
+      <section class="image-links">
+        <h2>Images and Links</h2>
+        <div class="image-links-grid">
+          <div>
+            <img src="assets/learning.svg" alt="Illustration of learning web development" />
+          </div>
+          <div>
+            <p>Visit these useful resources to learn more:</p>
+            <ul>
+              <li><a href="https://www.w3schools.com/html/" target="_blank" rel="noopener noreferrer">W3Schools HTML Tutorial</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">MDN CSS Guide</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">MDN JavaScript Guide</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cards">
+        <article class="card">
+          <h3>HTML</h3>
+          <p>
+            HTML gives the page its structure — the headings, text, and sections
+            that hold everything together.
+          </p>
+          <button onclick="learnHTML()">What HTML does</button>
+        </article>
+
+        <article class="card">
+          <h3>CSS</h3>
+          <p>
+            CSS helps shape the look and feel of the page, making it feel more
+            polished and easier to read.
+          </p>
+          <button onclick="learnCSS()">What CSS does</button>
+        </article>
+
+        <article class="card">
+          <h3>JavaScript</h3>
+          <p>
+            JavaScript adds a little life to the page through interaction,
+            updates, and small dynamic moments.
+          </p>
+          <button onclick="learnJS()">What JavaScript does</button>
+        </article>
+      </section>
+
+      <section class="goals">
+        <h2>What I'm focusing on</h2>
+        <ul>
+          <li>Build clean and readable pages with HTML</li>
+          <li>Make layouts feel polished with CSS</li>
+          <li>Bring pages to life with JavaScript</li>
+        </ul>
+      </section>
+
+      <section class="clock-section">
+        <h2>Current time</h2>
+        <p id="clock" aria-live="polite"></p>
+      </section>
+
+      <section class="motivation">
+        <h2>Need a little push?</h2>
+        <button onclick="showMessage()">Give me motivation</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Built with care by <strong>Aditya Keshari</strong><br />
+        Learning web development, one day at a time.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
