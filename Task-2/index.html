@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Workspace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Flexbox Navigation -->
+    <nav class="navbar">
+        <div class="logo">Workspace.dev</div>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <ul class="nav-links">
+            <li><a class="nav-link" href="#todo-section">Tasks <span id="nav-todo-count" class="nav-badge">0</span></a></li>
+            <li><a class="nav-link" href="#contact-section">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>Organize work. Ship faster.</h1>
+            <p class="hero-sub">Quick tasks, contact, and lightweight project tracking — built for focus.</p>
+            <a class="cta-btn" href="#todo-section">Start a Task</a>
+        </div>
+    </section>
+
+    <!-- CSS Grid Content Layout -->
+    <main class="dashboard-grid">
+        
+        <!-- Task 4: Dynamic To-Do List Section -->
+        <section id="todo-section" class="card todo-card">
+            <h2>Project Tracker</h2>
+            <p class="subtitle">Manage your daily development milestones.</p>
+            
+            <div class="todo-input-group">
+                <input type="text" id="todo-input" placeholder="Add a new milestone...">
+                <button id="add-todo-btn">Add Task</button>
+            </div>
+            <div class="todo-actions">
+                <button id="clear-completed" class="muted">Clear Completed</button>
+                <div id="todo-count" class="muted">0 tasks</div>
+            </div>
+
+            <ul id="todo-list">
+                <!-- Dynamically populated via JS -->
+            </ul>
+        </section>
+
+        <!-- Task 1: Contact Form Section -->
+        <section id="contact-section" class="card contact-card">
+            <h2>Get In Touch</h2>
+            <p class="subtitle">Drop a message for collaboration inquiries.</p>
+            
+            <form id="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="John Doe" required aria-required="true">
+                    <span class="error-msg" id="name-error">Name is required.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com" required aria-required="true">
+                    <span class="error-msg" id="email-error">Please enter a valid email address.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="Your message here..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div id="form-success" class="success-msg" role="status" aria-live="polite"> </div>
+            </form>
+        </section>
+
+    </main>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg: #e4e7eb;
+    --card: #ffffff;
+    --text: #0f1724;
+    --muted: #687083;
+    --primary: #0b66c3;
+    --primary-dark: #094f9a;
+    --accent: #0ea5a4;
+    --accent-dark: #0b8b88;
+    --success: #16a34a;
+    --danger: #e11d48;
+    --border: #e2e8f0;
+    --surface: #f7fafc;
+    --hero-gradient: linear-gradient(135deg, rgba(11,102,195,1) 0%, rgba(14,165,164,1) 100%);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Flexbox Navigation Area */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Hero banner */
+.hero {
+    background: var(--hero-gradient);
+    color: white;
+    padding: 2.75rem 1rem;
+    border-radius: 12px;
+    max-width: 1200px;
+    margin: 1.5rem auto;
+    box-shadow: 0 10px 30px rgba(11,102,195,0.08);
+}
+.hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+.hero h1 {
+    font-size: 1.9rem;
+    margin-bottom: 0.5rem;
+}
+.hero-sub {
+    opacity: 0.92;
+    margin-bottom: 1rem;
+}
+.cta-btn {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.18s, transform 0.12s;
+}
+.cta-btn:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-2px);
+}
+
+/* Card accent stripe */
+.card {
+    position: relative;
+    overflow: visible;
+}
+.card::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 12px;
+    bottom: 12px;
+    width: 6px;
+    border-radius: 6px;
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    box-shadow: 0 6px 18px rgba(11,102,195,0.06);
+}
+
+.navbar .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links.open {
+    display: flex;
+}
+
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 8px;
+    color: var(--muted);
+}
+
+.nav-link:hover {
+    background: rgba(11,102,195,0.06);
+    color: var(--primary);
+}
+
+.nav-link.active {
+    background: linear-gradient(90deg, rgba(11,102,195,0.12), rgba(11,102,195,0.04));
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.nav-badge {
+    background: var(--primary);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.12rem 0.45rem;
+    border-radius: 999px;
+    margin-left: 6px;
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Main Workspace CSS Grid Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.card {
+    background: var(--card);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.18s ease;
+}
+
+h2 {
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* Task 1 Layout Elements (Contact Form Inputs) */
+.form-group {
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    box-shadow: 0 4px 12px rgba(43,108,176,0.08);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary);
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Validation Style Adjustments */
+.error-msg {
+    color: var(--danger);
+    font-size: 0.8rem;
+    display: none;
+    margin-top: 0.25rem;
+}
+
+.invalid input {
+    border-color: var(--danger);
+}
+
+.invalid .error-msg {
+    display: block;
+}
+
+/* Task 4: Dynamic To-Do List Elements */
+.todo-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.todo-input-group input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#add-todo-btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#add-todo-btn:hover {
+    background-color: var(--accent-dark);
+}
+
+/* Clear completed button styling */
+#clear-completed {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid transparent;
+    padding: 0.4rem 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s, color 0.12s, transform 0.12s;
+}
+
+#clear-completed:hover {
+    background: rgba(11,102,195,0.06);
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+#clear-completed:active {
+    transform: translateY(0);
+}
+
+#clear-completed[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+#todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    animation: fadeIn 0.3s ease;
+    cursor: pointer;
+}
+
+.todo-item.completed {
+    background: linear-gradient(90deg, rgba(22,163,74,0.06), rgba(22,163,74,0.02));
+    border-color: rgba(22,163,74,0.2);
+    text-decoration: line-through;
+    color: var(--success);
+    opacity: 0.9;
+}
+
+.todo-item.completed span {
+    text-decoration: line-through;
+    color: var(--success);
+    opacity: 0.7;
+}
+
+.delete-btn {
+    background: transparent;
+    color: var(--muted);
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.delete-btn:hover {
+    color: var(--danger);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        margin: 1.5rem auto;
+    }
+    
+    .navbar {
+        padding: 1rem;
+    }
+    .nav-links {
+        display: none;
+        position: absolute;
+        right: 1rem;
+        top: 56px;
+        background: white;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .nav-toggle {
+        display: block;
+    }
+}
+
+/* Toast notifications */
+.toast {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    min-width: 200px;
+    background: rgba(15,23,36,0.95);
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.25s, transform 0.25s;
+    pointer-events: none;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.todo-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.muted {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+.success-msg {
+    margin-top: 0.75rem;
+    color: #2f855a;
+    font-weight: 600;
+    display: none;
+}
+
+.success-msg.show {
+    display: block;
+}
