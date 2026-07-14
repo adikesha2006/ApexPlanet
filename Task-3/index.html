@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Devboard — Assessment & Console</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__brand">
+        <span class="topbar__mark" aria-hidden="true">&lt;/&gt;</span>
+        <span class="topbar__name">Devboard</span>
+      </div>
+      <nav class="topbar__nav" aria-label="Primary">
+        <a href="#assessment" class="topbar__link">Assessment</a>
+        <a href="#console" class="topbar__link">Live Console</a>
+        <a href="#log" class="topbar__link">Session Log</a>
+      </nav>
+      <div class="topbar__status" role="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="mono">session active</span>
+      </div>
+    </header>
+
+    <main class="dashboard-grid">
+      <!-- MODULE 01 — TECHNICAL ASSESSMENT -->
+      <section
+        class="panel quiz-panel"
+        id="assessment"
+        aria-labelledby="quiz-heading"
+      >
+        <div class="panel__header">
+          <p class="eyebrow mono">module 01 — assessment</p>
+          <h1 id="quiz-heading">Technical Quiz</h1>
+          <p class="panel__sub">
+            Five questions. No refresh. Answers lock the moment you pick.
+          </p>
+        </div>
+
+        <div class="quiz-meta">
+          <div class="quiz-meta__progress">
+            <span class="mono" id="quiz-progress-label">Question 1 of 5</span>
+            <div
+              class="progress-track"
+              role="progressbar"
+              aria-label="Quiz completion progress"
+              aria-valuemin="0"
+              aria-valuemax="5"
+              aria-valuenow="0"
+              id="progress-bar"
+            >
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+          <div class="quiz-meta__score mono" id="quiz-score">Score: 0 / 5</div>
+        </div>
+
+        <div class="quiz-body" id="quiz-body" role="region" aria-live="polite">
+          <h2 class="quiz-question" id="quiz-question"></h2>
+          <ul class="quiz-options" id="quiz-options" role="list"></ul>
+          <p class="quiz-feedback" id="quiz-feedback" aria-live="assertive"></p>
+        </div>
+
+        <div class="quiz-actions">
+          <button type="button" class="btn btn--ghost" id="reset-quiz">
+            Reset quiz
+          </button>
+          <button
+            type="button"
+            class="btn btn--primary"
+            id="next-question"
+            disabled
+          >
+            Next question
+          </button>
+        </div>
+      </section>
+
+      <!-- SIDE COLUMN -->
+      <aside class="side-col">
+        <!-- MODULE 02 — LIVE WEATHER CONSOLE -->
+        <section
+          class="panel console-panel"
+          id="console"
+          aria-labelledby="console-heading"
+        >
+          <div class="panel__header">
+            <p class="eyebrow mono">module 02 — live console</p>
+            <h2 id="console-heading">Weather Lookup</h2>
+            <p class="panel__sub">
+              Geocodes a city, then pulls live metrics from Open-Meteo.
+            </p>
+          </div>
+
+          <form class="console-form" id="weather-form">
+            <label for="city-input" class="sr-only">City name</label>
+            <input
+              type="text"
+              id="city-input"
+              name="city"
+              class="console-input"
+              placeholder="Try “Bhopal” or “Berlin”"
+              autocomplete="off"
+              required
+            />
+            <button type="submit" class="btn btn--primary" id="weather-submit">
+              <span id="weather-submit-label">Fetch data</span>
+            </button>
+          </form>
+
+          <div
+            class="console-output"
+            id="console-output"
+            role="region"
+            aria-live="polite"
+          >
+            <p class="console-placeholder" id="console-placeholder">
+              No lookups yet. Enter a city above to pull live conditions.
+            </p>
+          </div>
+        </section>
+
+        <!-- SESSION LOG -->
+        <section class="panel log-panel" id="log" aria-labelledby="log-heading">
+          <div class="panel__header">
+            <p class="eyebrow mono">module 03 — session log</p>
+            <h2 id="log-heading">Activity</h2>
+          </div>
+          <ul class="log-list" id="log-list" aria-live="polite">
+            <li class="log-empty" id="log-empty">Nothing logged yet.</li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+
+    <!-- TOAST WRAPPER -->
+    <div
+      class="toast-wrapper"
+      id="toast-wrapper"
+      role="status"
+      aria-live="polite"
+    ></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
