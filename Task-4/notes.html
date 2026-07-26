@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App — Local Storage Workspace</title>
+    <meta
+      name="description"
+      content="A polished note-taking app with local storage, search, filters, pinning, and completion controls."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="nav" id="top">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__brand">
+          <span class="nav__mark mono">AK</span>
+          <span class="nav__name">Aditya Keshari</span>
+        </a>
+
+        <button
+          type="button"
+          class="nav__toggle"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+
+        <nav class="nav__links" id="nav-links" aria-label="Primary">
+          <a href="index.html#about">About</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="notes.html" class="is-active">Notes App</a>
+          <a href="products.html">Products</a>
+          <a href="index.html#contact" class="btn btn--primary btn--sm">Hire me</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="section section--muted">
+        <div class="section__inner">
+          <div class="section__head">
+            <p class="eyebrow mono">step 2</p>
+            <h2>Notes App</h2>
+            <p class="section__sub">
+              Capture ideas, pin important tasks, organize by category, and keep
+              everything saved in your browser.
+            </p>
+          </div>
+
+          <div class="notes-shell">
+            <form class="notes-form panel" id="note-form">
+              <label for="note-title" class="field-label">Title</label>
+              <input
+                type="text"
+                id="note-title"
+                class="field-input"
+                placeholder="Plan your day"
+                required
+              />
+
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="note-category" class="field-label">Category</label>
+                  <select id="note-category" class="field-input">
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="Study">Study</option>
+                    <option value="Ideas">Ideas</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label for="note-priority" class="field-label">Priority</label>
+                  <select id="note-priority" class="field-input">
+                    <option value="High">High</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="Low">Low</option>
+                  </select>
+                </div>
+              </div>
+
+              <label for="note-content" class="field-label">Content</label>
+              <textarea
+                id="note-content"
+                class="field-input field-textarea"
+                rows="7"
+                placeholder="Write your notes here..."
+                required
+              ></textarea>
+
+              <label class="field-label" for="note-pin">
+                <input type="checkbox" id="note-pin" /> Pin this note
+              </label>
+
+              <div class="notebook__editor-actions">
+                <button type="button" class="btn btn--ghost" id="note-clear">
+                  Clear
+                </button>
+                <button type="submit" class="btn btn--primary" id="note-save">
+                  Save note
+                </button>
+              </div>
+
+              <p class="notebook__editing-flag mono" id="editing-flag" hidden>
+                Editing an existing note
+              </p>
+            </form>
+
+            <div class="notes-toolbar panel">
+              <div class="notes-toolbar__top">
+                <h3 class="mono">Saved notes</h3>
+                <span class="chip mono" id="note-count">0</span>
+              </div>
+
+              <div class="notes-stats" id="notes-stats"></div>
+
+              <div class="notes-toolbar__controls">
+                <input
+                  type="search"
+                  id="note-search"
+                  class="field-input"
+                  placeholder="Search notes"
+                />
+                <label for="note-filter-category" class="sr-only">Filter notes by category</label>
+                <select id="note-filter-category" class="field-input">
+                  <option value="all">All categories</option>
+                  <option value="Personal">Personal</option>
+                  <option value="Work">Work</option>
+                  <option value="Study">Study</option>
+                  <option value="Ideas">Ideas</option>
+                </select>
+                <label for="note-sort" class="sr-only">Sort notes</label>
+                <select id="note-sort" class="field-input">
+                  <option value="recent">Most recent</option>
+                  <option value="oldest">Oldest first</option>
+                  <option value="priority">By priority</option>
+                  <option value="title">By title</option>
+                </select>
+              </div>
+
+              <ul class="notes-list" id="notes-list" aria-live="polite"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <p class="mono">Aditya Keshari</p>
+          <p>Notes app built with localStorage and polished UI.</p>
+        </div>
+        <div class="footer__contact" aria-label="Footer links">
+          <h3 class="mono">Connect</h3>
+          <a href="mailto:adikesha2006@gmail.com">adikesha2006@gmail.com</a>
+          <a href="https://github.com/adikesha2006" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="toast-wrapper" id="toast-wrapper" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
